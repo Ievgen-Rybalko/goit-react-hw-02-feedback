@@ -55,9 +55,7 @@ class App extends Component {
       <div className="App">
         <Section title="Please leave feedback">
           <FeedbackOptions
-            good={good}
-            neutral={neutral}
-            bad={bad}
+            options={['good', 'neutral', 'bad']}
             onFeedbackButton={this.onLeaveFeedback}
           />
         </Section>

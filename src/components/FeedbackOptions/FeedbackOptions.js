@@ -1,30 +1,24 @@
 import styles from './FeedbackOptions.module.css';
 
-const FeedbackOptions = ({ bad, neutral, good, onFeedbackButton }) => {
+const FeedbackOptions = ({options, onFeedbackButton }) => {
+  
   return (
-    <div>
-      <button
-        id="good"
-        className={styles.button}
-        onClick={() => onFeedbackButton('good')}
-      >
-        Good
-      </button>
-      <button
-        id="neutral"
-        className={styles.button}
-        onClick={() => onFeedbackButton('neutral')}
-      >
-        Neutral
-      </button>
-      <button
-        id="bad"
-        className={styles.button}
-        onClick={() => onFeedbackButton('bad')}
-      >
-        Bad
-      </button>
-    </div>
+    <div className={styles.button__list}>
+      <ul>
+       {options.map((option)=>{
+         return (
+          <button
+            key={option}
+            onClick={() => onFeedbackButton(option)}
+            className={styles.button}
+          >
+          {option.charAt(0).toUpperCase() + option.slice(1)}
+          </button>
+        );
+       })}
+     </ul>
+    </div>    
+
   );
 };
 
